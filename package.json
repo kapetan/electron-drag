@@ -1,0 +1,37 @@
+{
+  "name": "electron-drag",
+  "version": "1.0.0",
+  "description": "Window dragging for electron applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "electron test/app.js",
+    "test-rebuild": "electron-rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kapetan/electron-drag"
+  },
+  "keywords": [
+    "electron",
+    "mouse",
+    "drag",
+    "window"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kapetan/electron-drag/issues"
+  },
+  "homepage": "https://github.com/kapetan/electron-drag",
+  "optionalDependencies": {
+    "osx-mouse": "^1.1.1",
+    "win-mouse": "^1.0.2"
+  },
+  "dependencies": {
+    "dombo": "^3.2.0",
+    "try-require": "^1.2.1"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^0.26.1",
+    "electron-rebuild": "^0.1.4"
+  }
+}
