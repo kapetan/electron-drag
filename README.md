@@ -10,6 +10,8 @@ This module uses [osx-mouse][osx] or [win-mouse][win] modules for tracking the m
 
 # Usage
 
+	npm install electron-drag
+
 Require the module in an `Electron` web page.
 
 ```javascript
