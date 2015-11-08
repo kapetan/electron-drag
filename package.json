@@ -1,6 +1,6 @@
 {
   "name": "electron-drag",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Window dragging for electron applications",
   "main": "index.js",
   "scripts": {
