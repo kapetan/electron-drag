@@ -2,7 +2,7 @@
 
 Improved window dragging for `Electron` applications.
 
-Framless windows can be dragged using the [-webkit-app-region][region] css property, but this disables all regular dom events and user interactions with the affected element, which makes it hard to emulate a native-like title bar in the application, as it's not possible to capture double clicks for maximizing the window.
+Frameless windows can be dragged using the [-webkit-app-region][region] css property, but this disables all regular dom events and user interactions with the affected element, which makes it hard to emulate a native-like title bar in the application, as it's not possible to capture double clicks for maximizing the window.
 
 A workaround is to use a pure javascript solution, but dragging only works well when moving the mouse in less than normal speed, else the mouse pointer will move outside the window area and no events will be received by the dom.
 
