@@ -1,5 +1,6 @@
 var tryRequire = require('try-require');
-var remote = require('remote');
+var electron = require('electron');
+var remote = electron.remote;
 var $ = require('dombo');
 
 var mouseConstructor = tryRequire('osx-mouse') || tryRequire('win-mouse');
