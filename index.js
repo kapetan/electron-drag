@@ -38,8 +38,8 @@ var drag = function(element) {
 
 		didDrag = true;
 
-		x = Math.round(x - offset[0]);
-		y = Math.round(y - offset[1]);
+		x = Math.round(x - offset[0]) || 1;
+		y = Math.round(y - offset[1]) || 1;
 
 		remote.getCurrentWindow().setPosition(x, y);
 	});
