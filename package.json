@@ -31,7 +31,7 @@
     "try-require": "^1.2.1"
   },
   "devDependencies": {
-    "electron-prebuilt": "^1.2.2",
-    "electron-rebuild": "^1.1.5"
+    "electron": "^10.1.1",
+    "electron-rebuild": "^2.0.2"
   }
 }

@@ -1,14 +1,16 @@
-var path = require('path');
-var electron = require('electron');
+const path = require('path');
+const { app, BrowserWindow } = require('electron');
 
-var app = electron.app;
-var BrowserWindow = electron.BrowserWindow;
+app.whenReady().then(function () {
+  const window = new BrowserWindow({
+    width: 800,
+    height: 600,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  });
 
-var window;
-
-app.on('ready', function() {
-	window = new BrowserWindow({ width: 800, height: 600, frame: false });
-	var url = 'file://' + path.join(__dirname, 'index.html');
-
-	window.loadURL(url);
+  window.loadFile(path.join(__dirname, 'index.html'));
+  window.webContents.openDevTools();
 });
