@@ -7,7 +7,7 @@ var remote = electron ? electron.remote : tryRequire('remote')
 var mouseConstructor = tryRequire('osx-mouse') || tryRequire('win-mouse')
 
 var supported = !!mouseConstructor
-var noop = function () {}
+var noop = function () { return noop }
 
 var drag = function (element) {
   element = $(element)

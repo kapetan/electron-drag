@@ -8,6 +8,12 @@ A workaround is to use a pure javascript solution, but dragging only works well 
 
 This module uses [osx-mouse][osx] or [win-mouse][win] modules for tracking the mouse position on the entire screen, and thereby enabling consistent window dragging, while the affected element is still able to receive dom events.
 
+# Build
+
+The module needs to be built with the correct `Electron` headers. See the [guide for using native Node modules with Electron][native] for more information.
+
+Versions of this library above version 2.0.0 require `Electron` which support `Node.js` version 9 and above.
+
 # Usage
 
 	npm install electron-drag
@@ -15,26 +21,24 @@ This module uses [osx-mouse][osx] or [win-mouse][win] modules for tracking the m
 Require the module in an `Electron` web page.
 
 ```javascript
-var drag = require('electron-drag');
+var drag = require('electron-drag')
 
 // Pass a query selector or a dom element to the function.
 // Dragging the element will drag the whole window.
-var clear = drag('#element');
+var clear = drag('#element')
 
 // Call the returned function to make the element undraggable again.
-clear();
+clear()
 ```
 
 The module only works on OS X and Windows, but doesn't fail when installed on a non-supported platform.
 
 ```javascript
 // Fallback to using -webkit-app-region property.
-if(!drag.supported) {
-	document.querySelector('#element').style['-webkit-app-region'] = 'drag';
+if (!drag.supported) {
+	document.querySelector('#element').style['-webkit-app-region'] = 'drag'
 }
 ```
-
-The module needs to be built with the correct `Electron` headers. See the [guide for using native Node modules with Electron][native] for more information.
 
 [region]: https://github.com/atom/electron/blob/master/docs/api/frameless-window.md#draggable-region
 [osx]: https://github.com/kapetan/osx-mouse

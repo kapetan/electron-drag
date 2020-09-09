@@ -25,7 +25,7 @@
   "homepage": "https://github.com/kapetan/electron-drag",
   "optionalDependencies": {
     "osx-mouse": "^2.0.0",
-    "win-mouse": "^2.0.0"
+    "win-mouse": "^2.0.1"
   },
   "dependencies": {
     "dombo": "^3.2.0",
