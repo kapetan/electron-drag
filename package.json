@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/kapetan/electron-drag",
   "optionalDependencies": {
-    "osx-mouse": "^1.3.0",
+    "osx-mouse": "^2.0.0",
     "win-mouse": "^2.0.0"
   },
   "dependencies": {
