@@ -27,7 +27,8 @@ var drag = function(element) {
 		x = Math.round(x - offset[0]);
 		y = Math.round(y - offset[1]);
 
-		remote.getCurrentWindow().setPosition(x, y);
+		// setPosition throws error if called with -0
+		remote.getCurrentWindow().setPosition(x + 0, y + 0);
 	});
 
 	mouse.on('left-up', function() {
