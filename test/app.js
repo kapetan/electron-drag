@@ -1,5 +1,5 @@
-const path = require('path');
-const { app, BrowserWindow } = require('electron');
+const path = require('path')
+const { app, BrowserWindow } = require('electron')
 
 app.whenReady().then(function () {
   const window = new BrowserWindow({
@@ -10,8 +10,8 @@ app.whenReady().then(function () {
       nodeIntegration: true,
       enableRemoteModule: true
     }
-  });
+  })
 
-  window.loadFile(path.join(__dirname, 'index.html'));
-  window.webContents.openDevTools();
-});
+  window.loadFile(path.join(__dirname, 'index.html'))
+  window.webContents.openDevTools()
+})

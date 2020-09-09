@@ -4,6 +4,7 @@
   "description": "Window dragging for electron applications",
   "main": "index.js",
   "scripts": {
+    "lint": "standard",
     "test": "electron test/app.js",
     "test-rebuild": "electron-rebuild"
   },
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "electron": "^10.1.1",
-    "electron-rebuild": "^2.0.2"
+    "electron-rebuild": "^2.0.2",
+    "standard": "^14.3.4"
   }
 }
