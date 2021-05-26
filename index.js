@@ -1,45 +1,54 @@
 var tryRequire = require('try-require')
-var $ = require('dombo')
+const $ = require('dombo')
 
-var electron = tryRequire('electron')
-var remote = electron ? electron.remote : tryRequire('remote')
+const electron = tryRequire('electron')
+const remote = electron ? electron.remote : tryRequire('remote')
 
-var mouseConstructor = tryRequire('osx-mouse') || tryRequire('win-mouse')
+const mouseConstructor = tryRequire('osx-mouse') || tryRequire('win-mouse')
 
-var supported = !!mouseConstructor
-var noop = function () { return noop }
+const supported = !!mouseConstructor
+const noop = function () { return noop }
 
-var drag = function (element) {
+const drag = function (element) {
   element = $(element)
+  if (!element) return
 
-  var offset = null
-  var mouse = mouseConstructor()
+  let offset = null
+  let mouse = null
 
-  var onmousedown = function (e) {
+  const onmousedown = function (e) {
     offset = [e.clientX, e.clientY]
+    mouse = mouseConstructor()
+    mouse.on('left-drag', function (x, y) {
+      if (!offset) return
+
+      x = Math.round(x - offset[0])
+      y = Math.round(y - offset[1])
+
+      // setPosition throws error if called with -0
+      remote.getCurrentWindow().setPosition(x + 0, y + 0)
+    })
+
+    mouse.on('left-up', function () {
+      offset = null
+    })
+  }
+
+  const destroyMouse = () => {
+    mouse?.destroy()
+    mouse = undefined
   }
 
   element.on('mousedown', onmousedown)
-
-  mouse.on('left-drag', function (x, y) {
-    if (!offset) return
-
-    x = Math.round(x - offset[0])
-    y = Math.round(y - offset[1])
-
-    // setPosition throws error if called with -0
-    remote.getCurrentWindow().setPosition(x + 0, y + 0)
-  })
-
-  mouse.on('left-up', function () {
-    offset = null
-  })
+  element.on('mouseup', destroyMouse)
 
   return function () {
     element.off('mousedown', onmousedown)
-    mouse.destroy()
+    element.off('onmouseup', destroyMouse)
+    destroyMouse()
   }
 }
 
 drag.supported = supported
 module.exports = supported ? drag : noop
+    
