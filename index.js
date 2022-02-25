@@ -6,6 +6,8 @@ var remote = electron ? electron.remote : tryRequire('remote')
 
 var mouseConstructor = tryRequire('osx-mouse') || tryRequire('win-mouse')
 
+remote || (remote=tryRequire('@electron/remote'));
+
 var supported = !!mouseConstructor
 var noop = function () { return noop }
 
